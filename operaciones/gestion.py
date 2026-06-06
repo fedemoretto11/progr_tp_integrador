@@ -1,5 +1,6 @@
 from utils.input import pedir_entero, pedir_texto
 from utils.csv import guardar_paises_csv
+from utils.formatting import formato_numero
 
 def buscar_pais_no_existe(nombre, paises):
     """Valida que un país no exista ya en la lista."""
@@ -14,8 +15,8 @@ def mostrar_paises(paises):
     print("\n--- Lista de Paises ---")
     for pais in paises:
         print(f"\nPais: {pais['nombre']}")
-        print(f"Poblacion: {pais['poblacion']}")
-        print(f"Superficie: {pais['superficie']} km2")
+        print(f"Poblacion: {formato_numero(pais['poblacion'])}")
+        print(f"Superficie: {formato_numero(pais['superficie'])} km2")
         print(f"Continente: {pais['continente']}")
         print("-----------------------------")
 
@@ -95,7 +96,7 @@ def actualizar_pais(paises):
         if len(paises_encontrados) > 1:
             print("\nEncontrados varios paises:")
             for i, pais in enumerate(paises_encontrados, 1):
-                print(f"{i}. {pais['nombre']} (Población: {pais['poblacion']}, Superficie: {pais['superficie']} km2)")
+                print(f"{i}. {pais['nombre']} (Población: {formato_numero(pais['poblacion'])}, Superficie: {formato_numero(pais['superficie'])} km2)")
             
             try:
                 opcion = pedir_entero("Seleccione el numero del pais a actualizar: ")
@@ -109,8 +110,8 @@ def actualizar_pais(paises):
         
         # Mostrar valores actuales
         print(f"\nPais seleccionado: {pais['nombre']}")
-        print(f"Poblacion actual: {pais['poblacion']}")
-        print(f"Superficie actual: {pais['superficie']} km2")
+        print(f"Poblacion actual: {formato_numero(pais['poblacion'])}")
+        print(f"Superficie actual: {formato_numero(pais['superficie'])} km2")
         
         # Pedir nuevos valores
         print("\nIngrese los nuevos valores (o deje en blanco para mantener los actuales):")
@@ -126,8 +127,8 @@ def actualizar_pais(paises):
         # Pedir confirmación
         print(f"\n¿Confirmar actualización?")
         print(f"  {pais['nombre']}")
-        print(f"  Población: {pais['poblacion']} → {poblacion_nueva}")
-        print(f"  Superficie: {pais['superficie']} → {superficie_nueva} km2")
+        print(f"  Población: {formato_numero(pais['poblacion'])} → {formato_numero(poblacion_nueva)}")
+        print(f"  Superficie: {formato_numero(pais['superficie'])} → {formato_numero(superficie_nueva)} km2")
         
         confirmacion = input("¿Actualizar? (s/n): ").strip().lower()
         

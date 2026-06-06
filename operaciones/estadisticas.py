@@ -1,6 +1,4 @@
-def formato_numero(n):
-    """Formatea número con separadores de miles para visualización."""
-    return f"{n:,}".replace(",", ".")
+from utils.formatting import formato_numero
 
 def estadistica_max_min_poblacion(paises):
     """Muestra país con mayor y menor población."""
