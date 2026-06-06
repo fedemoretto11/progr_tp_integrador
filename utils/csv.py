@@ -7,13 +7,8 @@ def obtener_ruta_csv():
 
 def guardar_paises_csv(paises):
     """Guarda la lista de países en el archivo CSV.
-    
-    Args:
-        paises: Lista de diccionarios con datos de países
-        
-    Raises:
-        FileNotFoundError: Si el directorio no existe
-        PermissionError: Si no hay permisos de escritura
+
+    Implememnta manejo de errores
     """
     ruta = obtener_ruta_csv()
     fieldnames = ["nombre", "poblacion", "superficie", "continente"]
@@ -31,12 +26,9 @@ def guardar_paises_csv(paises):
 def leer_paises_csv():
     """Lee la lista de países desde el archivo CSV.
     
-    Returns:
-        Lista de diccionarios con datos de países
-        
-    Raises:
-        FileNotFoundError: Si el archivo no existe
-        ValueError: Si el CSV tiene formato inválido
+    Retorna: Lista de diccionarios con datos de países
+
+    Implementa manejo de errores
     """
     ruta = obtener_ruta_csv()
     paises = []
