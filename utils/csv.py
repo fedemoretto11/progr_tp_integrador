@@ -1,11 +1,20 @@
 import csv
 import os
+from typing import List, Dict
+from utils.messages import (
+    MSG_ERROR_ESCRIBIR_CSV,
+    MSG_ERROR_PERMISOS_CSV,
+    MSG_ERROR_CSV_CAMPOS_VACIOS,
+    MSG_ERROR_CSV_NO_ENCONTRADO,
+    MSG_ERROR_CSV_COLUMNAS,
+    MSG_ERROR_CSV_DATOS_INVALIDOS,
+)
 
-def obtener_ruta_csv():
+def obtener_ruta_csv() -> str:
     """Retorna la ruta relativa al archivo CSV."""
     return os.path.join("datos", "paises.csv")
 
-def guardar_paises_csv(paises):
+def guardar_paises_csv(paises: List[Dict[str, int | str]]) -> None:
     """Guarda la lista de países en el archivo CSV.
 
     Implememnta manejo de errores
@@ -19,11 +28,11 @@ def guardar_paises_csv(paises):
             writer.writeheader()
             writer.writerows(paises)
     except FileNotFoundError:
-        raise FileNotFoundError(f"No se puede escribir en {ruta}: archivo no encontrado")
+        raise FileNotFoundError(MSG_ERROR_ESCRIBIR_CSV.format(ruta=ruta))
     except PermissionError:
-        raise PermissionError(f"No tiene permisos de escritura en {ruta}")
+        raise PermissionError(MSG_ERROR_PERMISOS_CSV.format(ruta=ruta))
 
-def leer_paises_csv():
+def leer_paises_csv() -> List[Dict[str, int | str]]:
     """Lee la lista de países desde el archivo CSV.
     
     Retorna: Lista de diccionarios con datos de países
@@ -31,7 +40,7 @@ def leer_paises_csv():
     Implementa manejo de errores
     """
     ruta = obtener_ruta_csv()
-    paises = []
+    paises: List[Dict[str, int | str]] = []
     
     try:
         with open(ruta, "r", encoding="utf-8") as archivo:
@@ -44,7 +53,7 @@ def leer_paises_csv():
                 continente = fila["continente"].strip()
         
                 if nombre == "" or continente == "":
-                    raise ValueError("El CSV contiene campos vacios")
+                    raise ValueError(MSG_ERROR_CSV_CAMPOS_VACIOS)
                 
                 pais = {
                     "nombre": nombre,
@@ -54,11 +63,11 @@ def leer_paises_csv():
                 }
                 
                 paises.append(pais)
-            
+             
             return paises
     except FileNotFoundError:
-        raise FileNotFoundError("No se encontro el archivo CSV")
+        raise FileNotFoundError(MSG_ERROR_CSV_NO_ENCONTRADO)
     except KeyError:
-        raise ValueError("El CSV no tiene las columnas esperadas")
+        raise ValueError(MSG_ERROR_CSV_COLUMNAS)
     except ValueError:
-        raise ValueError("El CSV contiene datos invalidos")
+        raise ValueError(MSG_ERROR_CSV_DATOS_INVALIDOS)
