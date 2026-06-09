@@ -167,7 +167,11 @@ def menu_mostrar_todos(paises):
     try:
         validar_no_vacio(paises, "No hay países cargados.")
         for pais in paises:
-            print(f"{pais['nombre']}: Población {pais['poblacion']}, Superficie {pais['superficie']} km², Continente {pais['continente']}")
+            print(f"País: {pais['nombre']}")
+            print(f"  Población: {formato_numero(pais['poblacion'])}")
+            print(f"  Superficie: {formato_numero(pais['superficie'])} km²")
+            print(f"  Continente: {pais['continente']}")
+            print("-"*50)
     except ValueError as error:
         print(error)
 
