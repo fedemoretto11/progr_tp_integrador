@@ -7,12 +7,12 @@ from utils.prompts import (
     FORMAT_KM2
 )
 from utils.messages import MSG_NO_PAISES_CARGADOS
+from utils.validaciones import validar_no_vacio
 from typing import List, Dict
 
 def estadistica_max_min_poblacion(paises: List[Dict[str, int | str]]) -> None:
-    """Muestra país con mayor y menor población."""
-    if not paises:
-        raise ValueError(MSG_NO_PAISES_CARGADOS)
+    """estadistica_max_min_poblacion: Muestra país con mayor y menor población."""
+    validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
     max_pais = max(paises, key=lambda p: p["poblacion"])
     min_pais = min(paises, key=lambda p: p["poblacion"])
@@ -33,9 +33,8 @@ def estadistica_max_min_poblacion(paises: List[Dict[str, int | str]]) -> None:
     print(f"{LABEL_DIFERENCIA}{formato_numero(diferencia)}")
 
 def estadistica_promedio_poblacion(paises: List[Dict[str, int | str]]) -> None:
-    """Calcula y muestra promedio de población."""
-    if not paises:
-        raise ValueError(MSG_NO_PAISES_CARGADOS)
+    """estadistica_promedio_poblacion: Calcula y muestra promedio de población."""
+    validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
     total = sum(p["poblacion"] for p in paises)
     promedio = total / len(paises)
@@ -43,9 +42,8 @@ def estadistica_promedio_poblacion(paises: List[Dict[str, int | str]]) -> None:
     print(f"{LABEL_PROMEDIO_POBLACION}{formato_numero(round(promedio, 2))}")
 
 def estadistica_promedio_superficie(paises: List[Dict[str, int | str]]) -> None:
-    """Calcula y muestra promedio de superficie."""
-    if not paises:
-        raise ValueError(MSG_NO_PAISES_CARGADOS)
+    """estadistica_promedio_superficie: Calcula y muestra promedio de superficie."""
+    validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
     total = sum(p["superficie"] for p in paises)
     promedio = total / len(paises)
@@ -53,9 +51,8 @@ def estadistica_promedio_superficie(paises: List[Dict[str, int | str]]) -> None:
     print(f"{LABEL_PROMEDIO_SUPERFICIE}{formato_numero(round(promedio, 2))}{FORMAT_KM2}")
 
 def estadistica_cantidad_por_continente(paises: List[Dict[str, int | str]]) -> None:
-    """Muestra cantidad de países por continente (ordenado alfabéticamente)."""
-    if not paises:
-        raise ValueError(MSG_NO_PAISES_CARGADOS)
+    """estadistica_cantidad_por_continente: Muestra cantidad de países por continente."""
+    validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
     continentes = {}
     for pais in paises:

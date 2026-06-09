@@ -1,47 +1,44 @@
-def mostrar_menu_principal():
-    """Muestra el menú principal."""
-    print("\n----- Gestor de Paises -----")
-    print("Ingrese una opcion: ")
-    print("1 - Agregar Pais")
-    print("2 - Actualizar poblacion y superficie")
-    print("3 - Buscar pais por nombre")
-    print("4 - Filtrar paises")
-    print("5 - Ordenar Paises")
-    print("6 - Mostrar estadisticas")
-    print("7 - Mostrar todos los paises")
-    print("8 - Salir")
+from utils.prompts import (
+    LABEL_SECTION_MAIN_MENU, LABEL_OPCION_AGREGAR_PAIS, LABEL_OPCION_ACTUALIZAR_PAIS,
+    LABEL_OPCION_BUSCAR_PAIS, LABEL_OPCION_FILTRAR, LABEL_OPCION_ORDENAR,
+    LABEL_OPCION_ESTADISTICAS, LABEL_OPCION_MOSTRAR_TODOS, LABEL_OPCION_SALIR
+)
 
-def mostrar_submenu_filtro():
-    """Muestra el menú de filtros."""
-    print("\n-- Filtros --")
-    print("Ingrese una opcion: ")
-    print("1 - Por Continente")
-    print("2 - Por Rango de poblacion")
-    print("3 - Por Rango de superficie")
-    print("4 - Volver al menu principal")
+def get_opciones_menu_principal():
+    """get_opciones_menu_principal: Retorna lista de opciones del menú principal."""
+    return [
+        LABEL_OPCION_AGREGAR_PAIS,
+        LABEL_OPCION_ACTUALIZAR_PAIS,
+        LABEL_OPCION_BUSCAR_PAIS,
+        LABEL_OPCION_FILTRAR,
+        LABEL_OPCION_ORDENAR,
+        LABEL_OPCION_ESTADISTICAS,
+        LABEL_OPCION_MOSTRAR_TODOS,
+        LABEL_OPCION_SALIR,
+    ]
 
-def mostrar_submenu_orden():
-    """Muestra el menú de ordenamientos."""
-    print("\n-- Ordenar --")
-    print("Ingrese una opcion: ")
-    print("1 - Por Nombre")
-    print("2 - Por Poblacion")
-    print("3 - Por Superficie")
-    print("4 - Volver al menu principal")
+def get_titulo_menu_principal():
+    """get_titulo_menu_principal: Retorna el título del menú principal."""
+    return f"\n{LABEL_SECTION_MAIN_MENU}"
 
-def mostrar_submenu_estadisticas():
-    """Muestra el menú de estadísticas."""
-    print("\n-- Estadisticas --")
-    print("Ingrese una opcion: ")
-    print("1 - Paises con mayor y menor poblacion")
-    print("2 - Promedio poblacion")
-    print("3 - Promedio superficie")
-    print("4 - Cantidad de paises por continente")
-    print("5 - Volver al menu principal")
+def get_opciones_submenu_filtro():
+    """get_opciones_submenu_filtro: Retorna opciones del submenú de filtros."""
+    return ["Por Continente", "Por Rango de poblacion", "Por Rango de superficie", "Volver al menu principal"]
 
-def mostrar_submenu_tipo_orden():
-    """Muestra el menú para seleccionar tipo de orden."""
-    print("\n-- Tipo de orden --")
-    print("Ingrese una opcion:")
-    print("1 - Ascendente")
-    print("2 - Descendente")
+def get_opciones_submenu_orden():
+    """get_opciones_submenu_orden: Retorna opciones del submenú de ordenamientos."""
+    return ["Por Nombre", "Por Poblacion", "Por Superficie", "Volver al menu principal"]
+
+def get_opciones_submenu_estadisticas():
+    """get_opciones_submenu_estadisticas: Retorna opciones del submenú de estadísticas."""
+    return [
+        "Paises con mayor y menor poblacion",
+        "Promedio poblacion",
+        "Promedio superficie",
+        "Cantidad de paises por continente",
+        "Volver al menu principal"
+    ]
+
+def get_opciones_submenu_tipo_orden():
+    """get_opciones_submenu_tipo_orden: Retorna opciones para tipo de orden (asc/desc)."""
+    return ["Ascendente", "Descendente"]

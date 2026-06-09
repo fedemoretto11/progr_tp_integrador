@@ -11,14 +11,11 @@ from utils.messages import (
 )
 
 def obtener_ruta_csv() -> str:
-    """Retorna la ruta relativa al archivo CSV."""
+    """obtener_ruta_csv: Retorna la ruta relativa al archivo CSV."""
     return os.path.join("datos", "paises.csv")
 
 def guardar_paises_csv(paises: List[Dict[str, int | str]]) -> None:
-    """Guarda la lista de países en el archivo CSV.
-
-    Implememnta manejo de errores
-    """
+    """guardar_paises_csv: Guarda la lista de países en el archivo CSV."""
     ruta = obtener_ruta_csv()
     fieldnames = ["nombre", "poblacion", "superficie", "continente"]
     
@@ -33,12 +30,7 @@ def guardar_paises_csv(paises: List[Dict[str, int | str]]) -> None:
         raise PermissionError(MSG_ERROR_PERMISOS_CSV.format(ruta=ruta))
 
 def leer_paises_csv() -> List[Dict[str, int | str]]:
-    """Lee la lista de países desde el archivo CSV.
-    
-    Retorna: Lista de diccionarios con datos de países
-
-    Implementa manejo de errores
-    """
+    """leer_paises_csv: Lee la lista de países desde el archivo CSV."""
     ruta = obtener_ruta_csv()
     paises: List[Dict[str, int | str]] = []
     
