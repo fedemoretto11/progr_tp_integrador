@@ -6,6 +6,7 @@ from operaciones.filtros import filtrar_por_continente, filtrar_por_rango_poblac
 from operaciones.ordenamientos import ordenar_por_nombre, ordenar_por_poblacion, ordenar_por_superficie
 from operaciones.estadisticas import estadistica_max_min_poblacion, estadistica_promedio_poblacion, estadistica_promedio_superficie, estadistica_cantidad_por_continente
 from utils.csv import guardar_paises_csv
+from utils.formatting import mostrar_lista_paises
 from utils.menus import get_opciones_submenu_filtro, get_opciones_submenu_orden, get_opciones_submenu_estadisticas, get_opciones_submenu_tipo_orden
 from utils.validaciones import *
 from utils.messages import (
@@ -98,35 +99,52 @@ def menu_actualizar_pais(paises):
 
 def menu_buscar_pais(paises):
     """menu_buscar_pais: Busca un país por nombre."""
-    buscar_pais_por_nombre(paises)
+    try:
+        paises_encontrados = buscar_pais_por_nombre(paises)
+        mostrar_lista_paises(paises_encontrados, "BÚSQUEDA DE PAÍS")
+    except ValueError as error:
+        print(f"Error: {error}")
+
 
 
 def menu_filtrar(paises):
     """menu_filtrar: Filtra países según criterio seleccionado."""
-    opcion_filtro = pedir_opcion_filtro(get_opciones_submenu_filtro())
+    try:
+        opcion_filtro = pedir_opcion_filtro(get_opciones_submenu_filtro())
 
-    if opcion_filtro == 1:
-        filtrar_por_continente(paises)
-    elif opcion_filtro == 2:
-        filtrar_por_rango_poblacion(paises)
-    elif opcion_filtro == 3:
-        filtrar_por_rango_superficie(paises)
+        if opcion_filtro == 1:
+            paises_filtrados = filtrar_por_continente(paises)
+            mostrar_lista_paises(paises_filtrados, "PAÍSES FILTRADOS POR CONTINENTE")
+        elif opcion_filtro == 2:
+            paises_filtrados = filtrar_por_rango_poblacion(paises)
+            mostrar_lista_paises(paises_filtrados, "PAÍSES FILTRADOS POR RANGO DE POBLACIÓN")
+        elif opcion_filtro == 3:
+            paises_filtrados = filtrar_por_rango_superficie(paises)
+            mostrar_lista_paises(paises_filtrados, "PAÍSES FILTRADOS POR RANGO DE SUPERFICIE")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def menu_ordenar(paises):
     """menu_ordenar: Ordena países según criterio y dirección seleccionados."""
-    opcion_orden = pedir_opcion_ordenamiento(get_opciones_submenu_orden())
+    try:
+        opcion_orden = pedir_opcion_ordenamiento(get_opciones_submenu_orden())
 
-    if opcion_orden in [1, 2, 3]:
-        tipo_orden = pedir_tipo_orden(get_opciones_submenu_tipo_orden())
-        descendente = determinar_descendente(tipo_orden)
+        if opcion_orden in [1, 2, 3]:
+            tipo_orden = pedir_tipo_orden(get_opciones_submenu_tipo_orden())
+            descendente = determinar_descendente(tipo_orden)
 
-        if opcion_orden == 1:
-            ordenar_por_nombre(paises, descendente)
-        elif opcion_orden == 2:
-            ordenar_por_poblacion(paises, descendente)
-        elif opcion_orden == 3:
-            ordenar_por_superficie(paises, descendente)
+            if opcion_orden == 1:
+                paises_ordenados = ordenar_por_nombre(paises, descendente)
+                mostrar_lista_paises(paises_ordenados, "PAÍSES ORDENADOS POR NOMBRE")
+            elif opcion_orden == 2:
+                paises_ordenados = ordenar_por_poblacion(paises, descendente)
+                mostrar_lista_paises(paises_ordenados, "PAÍSES ORDENADOS POR POBLACIÓN")
+            elif opcion_orden == 3:
+                paises_ordenados = ordenar_por_superficie(paises, descendente)
+                mostrar_lista_paises(paises_ordenados, "PAÍSES ORDENADOS POR SUPERFICIE")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 def menu_estadisticas(paises):

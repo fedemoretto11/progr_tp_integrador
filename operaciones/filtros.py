@@ -45,34 +45,42 @@ def filtrar_por_rango_poblacion(paises: List[Dict[str, int | str]]) -> List[Dict
     """filtrar_por_rango_poblacion: Filtra países por rango de población (inclusivo)."""
     validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
-    poblacion_min = pedir_entero(PROMPT_FILTRO_POBLACION_MINIMA)
-    poblacion_max = pedir_entero(PROMPT_FILTRO_POBLACION_MAXIMA)
-    
-    validar_rango_poblacion(poblacion_min, poblacion_max)
-    
-    paises_filtrados = [p for p in paises if poblacion_min <= p["poblacion"] <= poblacion_max]
-    
-    validar_no_vacio(
-        paises_filtrados, 
-        MSG_ERROR_PAISES_RANGO_POBLACION.format(min=poblacion_min, max=poblacion_max)
-    )
-    
-    return paises_filtrados
+    while True:
+        try:
+            poblacion_min = pedir_entero(PROMPT_FILTRO_POBLACION_MINIMA)
+            poblacion_max = pedir_entero(PROMPT_FILTRO_POBLACION_MAXIMA)
+            
+            validar_rango_poblacion(poblacion_min, poblacion_max)
+            
+            paises_filtrados = [p for p in paises if poblacion_min <= p["poblacion"] <= poblacion_max]
+            
+            validar_no_vacio(
+                paises_filtrados, 
+                MSG_ERROR_PAISES_RANGO_POBLACION.format(min=poblacion_min, max=poblacion_max)
+            )
+            
+            return paises_filtrados
+        except ValueError as error:
+            print(f"Error: {error}")
 
 def filtrar_por_rango_superficie(paises: List[Dict[str, int | str]]) -> List[Dict[str, int | str]]:
     """filtrar_por_rango_superficie: Filtra países por rango de superficie (inclusivo)."""
     validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
-    superficie_min = pedir_entero(PROMPT_FILTRO_SUPERFICIE_MINIMA)
-    superficie_max = pedir_entero(PROMPT_FILTRO_SUPERFICIE_MAXIMA)
-    
-    validar_rango_superficie(superficie_min, superficie_max)
-    
-    paises_filtrados = [p for p in paises if superficie_min <= p["superficie"] <= superficie_max]
-    
-    validar_no_vacio(
-        paises_filtrados, 
-        MSG_ERROR_PAISES_RANGO_SUPERFICIE.format(min=superficie_min, max=superficie_max)
-    )
-    
-    return paises_filtrados
+    while True:
+        try:
+            superficie_min = pedir_entero(PROMPT_FILTRO_SUPERFICIE_MINIMA)
+            superficie_max = pedir_entero(PROMPT_FILTRO_SUPERFICIE_MAXIMA)
+            
+            validar_rango_superficie(superficie_min, superficie_max)
+            
+            paises_filtrados = [p for p in paises if superficie_min <= p["superficie"] <= superficie_max]
+            
+            validar_no_vacio(
+                paises_filtrados, 
+                MSG_ERROR_PAISES_RANGO_SUPERFICIE.format(min=superficie_min, max=superficie_max)
+            )
+            
+            return paises_filtrados
+        except ValueError as error:
+            print(f"Error: {error}")
