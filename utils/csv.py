@@ -1,7 +1,7 @@
 import csv
 import os
 from typing import List, Dict
-from utils.messages import (
+from utils.error_messages import (
     MSG_ERROR_ESCRIBIR_CSV,
     MSG_ERROR_PERMISOS_CSV,
     MSG_ERROR_CSV_CAMPOS_VACIOS,

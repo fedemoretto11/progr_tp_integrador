@@ -3,7 +3,7 @@
 from utils.input import pedir_texto
 from utils.formatting import formato_numero
 from utils.prompts import PROMPT_BUSCAR_PAIS, LABEL_LISTA_PAISES, LABEL_PAIS, LABEL_POBLACION, LABEL_SUPERFICIE, FORMAT_KM2, LABEL_CONTINENTE
-from utils.messages import MSG_NO_PAISES_CARGADOS, MSG_ERROR_PAIS_NO_ENCONTRADO
+from utils.error_messages import MSG_NO_PAISES_CARGADOS, MSG_ERROR_PAIS_NO_ENCONTRADO
 from utils.validaciones import validar_no_vacio
 from typing import List, Dict
 

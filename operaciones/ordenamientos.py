@@ -1,6 +1,6 @@
 from utils.input import pedir_entero
 from utils.prompts import PROMPT_ORDEN_DIRECCION
-from utils.messages import (
+from utils.error_messages import (
     MSG_NO_PAISES_CARGADOS,
     MSG_OPCION_INVALIDA,
 )

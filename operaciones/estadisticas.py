@@ -6,7 +6,7 @@ from utils.prompts import (
     LABEL_CANTIDAD_POR_CONTINENTE, LABEL_TOTAL, LABEL_PAISES,
     FORMAT_KM2
 )
-from utils.messages import MSG_NO_PAISES_CARGADOS
+from utils.error_messages import MSG_NO_PAISES_CARGADOS
 from utils.validaciones import validar_no_vacio
 from typing import List, Dict
 

@@ -1,5 +1,5 @@
 from typing import List
-from utils.messages import MSG_ERROR_ENTERO, MSG_ERROR_CAMPO_VACIO, MSG_OPCION_INVALIDA
+from utils.error_messages import MSG_ERROR_ENTERO, MSG_ERROR_CAMPO_VACIO, MSG_OPCION_INVALIDA
 
 def pedir_entero(mensaje: str) -> int:
     """pedir_entero: Solicita un número entero al usuario."""

@@ -1,7 +1,7 @@
 """Funciones de validación centralizadas - mejora legibilidad y reutilización."""
 
 from typing import List, Dict, Any, Callable
-from utils.messages import *
+from utils.error_messages import *
 from utils.formatting import formato_numero
 from utils.input import pedir_opcion_menu
 

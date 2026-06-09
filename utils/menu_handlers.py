@@ -9,7 +9,7 @@ from utils.csv import guardar_paises_csv
 from utils.formatting import mostrar_lista_paises
 from utils.menus import get_opciones_submenu_filtro, get_opciones_submenu_orden, get_opciones_submenu_estadisticas, get_opciones_submenu_tipo_orden
 from utils.validaciones import *
-from utils.messages import (
+from utils.error_messages import (
     MSG_EXITO_PAIS_AGREGADO, MSG_OPERACION_CANCELADA, 
     MSG_ERROR_GUARDAR_CSV, MSG_ADVERTENCIA_GUARDAR_CSV
 )

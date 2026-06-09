@@ -2,11 +2,11 @@
 
 # Mensajes de validación general
 MSG_NO_PAISES_CARGADOS = "No hay paises cargados"
-MSG_OPCION_INVALIDA = "Opcion invalida"
-MSG_SELECCION_INVALIDA = "Seleccion invalida"
+MSG_OPCION_INVALIDA = "[ERROR]: Opcion invalida"
+MSG_SELECCION_INVALIDA = "[ERROR]: Seleccion invalida"
 
 # Mensajes de éxito
-MSG_EXITO_PAIS_AGREGADO = "EXITO: Pais agregado correctamente y guardado"
+MSG_EXITO_PAIS_AGREGADO = "[EXITO]: Pais agregado correctamente y guardado"
 MSG_OPERACION_CANCELADA = "OPERACION CANCELADA"
 
 # Mensajes de entrada (input)
