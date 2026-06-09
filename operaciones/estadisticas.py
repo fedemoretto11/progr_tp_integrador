@@ -10,12 +10,18 @@ from utils.messages import MSG_NO_PAISES_CARGADOS
 from utils.validaciones import validar_no_vacio
 from typing import List, Dict
 
+
+def _obtener_poblacion(pais: Dict[str, int | str]) -> int:
+    """_obtener_poblacion: Obtiene población de un país."""
+    return pais["poblacion"]
+
+
 def estadistica_max_min_poblacion(paises: List[Dict[str, int | str]]) -> None:
     """estadistica_max_min_poblacion: Muestra país con mayor y menor población."""
     validar_no_vacio(paises, MSG_NO_PAISES_CARGADOS)
     
-    max_pais = max(paises, key=lambda p: p["poblacion"])
-    min_pais = min(paises, key=lambda p: p["poblacion"])
+    max_pais = max(paises, key=_obtener_poblacion)
+    min_pais = min(paises, key=_obtener_poblacion)
     
     print(f"\n{LABEL_MAYOR_POBLACION}")
     print(f"{LABEL_PAIS} {max_pais['nombre']}")

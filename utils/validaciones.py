@@ -67,6 +67,12 @@ def validar_no_vacio_string(texto: str, mensaje_error: str = "El valor no puede 
     return texto.strip()
 
 
+def validar_continente(texto: str) -> str:
+    """validar_continente: Valida y normaliza continente a capitalize (case-insensitive)."""
+    validado = validar_no_vacio_string(texto, "El continente no puede estar vacío")
+    return validado.capitalize()
+
+
 def validar_entero_mayor_a(valor_str: str, minimo: int = 0, mensaje_error: str = None) -> int:
     """validar_entero_mayor_a: Valida y convierte string a entero mayor que minimo."""
     try:
@@ -230,7 +236,7 @@ def pedir_datos_nuevo_pais(paises: List[Dict[str, int | str]]) -> tuple[str, int
     # Pedir continente
     continente = pedir_con_reintentos(
         "Ingrese el continente (o 'salir' para cancelar): ",
-        lambda c: validar_no_vacio_string(c, "El continente no puede estar vacío")
+        validar_continente
     )
     
     return nombre, poblacion, superficie, continente
