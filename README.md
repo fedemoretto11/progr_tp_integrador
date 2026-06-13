@@ -6,8 +6,8 @@ Aplicación desarrollada en Python que permite gestionar información de países
 
 ## Integrantes
 
-* Federico Moretto
-* Valentina Arria
+* Arria Valentina
+* Moretto Federico
 
 ---
 
@@ -96,8 +96,7 @@ progr_tp_integrador/
 │
 ├── main.py
 ├── README.md
-└── docs/
-    └── informe.pdf
+└── tp_integrador_arria_moretto.pdf
 ```
 
 ---
@@ -154,21 +153,15 @@ python main.py
 
 ---
 
-# Capturas de Pantalla
-
-*Pendiente de incorporar capturas del sistema en funcionamiento.*
-
----
-
 # Video Demostración
 
-*Pendiente de incorporar enlace al video.*
+*[TPI progra I.](https://www.youtube.com/watch?v=7qktlNgi2f0)*
 
 ---
 
 # Informe
 
-*Pendiente de incorporar enlace al informe PDF.*
+*Ver archivo: tp_integrador_arria_moretto.pdf*
 
 ---
 
